@@ -132,6 +132,28 @@
         "ConstraintDescription": "must be a valid EC2 instance type."
     }
 },
+"Metadata" : {
+    "AWS::CloudFormation::Interface" : {
+        "ParameterGroups" : [
+            {
+                "Label" : { "default": "EC2 Config" },
+                "Parameters" : ["InstanceType", "KeyName", "RDPSecurityGroup" ]
+            },
+            {
+                "Label" : { "default": "Autoscale Config" },
+                "Parameters" : ["AutoMin", "AutoMax", "AutoDesired" ]
+            },
+            {
+                "Label" : { "default": "VPC Config" },
+                "Parameters" : ["VPC", "SubnetA", "SubnetB", "AvailabilityZoneA", "AvailabilityZoneB"]
+            },
+            {
+                "Label" : { "default": "Jenkins Config" },
+                "Parameters" : ["JenkinsMaster", "IngressCIDR", "JNLPPORT"]
+            }
+        ]
+    }
+},
 "Mappings" : {
     "AWSInstanceType2Arch" : {
         "t2.micro"    : { "Arch" : "HVM64"  },
